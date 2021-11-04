@@ -10,6 +10,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using LanchesProj.Context;
 using Microsoft.EntityFrameworkCore;
+using LanchesProj.Repositories;
 
 namespace LanchesProj
 {
@@ -26,6 +27,10 @@ namespace LanchesProj
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<LanchesProjDBContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+            
+            services.AddTransient<ICategoriaRepository, CategoriaRepository>();
+            services.AddTransient<ILancheRepository, LancheRepository>();
+
             services.AddControllersWithViews();
         }
 
