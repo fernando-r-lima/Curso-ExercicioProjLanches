@@ -5,16 +5,8 @@
 <div class="row">
     @foreach (var lanche in Model.Lanches)
     {
-        <div class="col-4 col-sm-4 col-md-4 col-lg-4">
-            <div class="img-thumbnail">
-                <img src="@lanche.ImagemUrl" alt="">
-            </div>
-            <div>
-                <h3>@lanche.Preco.ToString("c")</h3>
-                <h3>@lanche.Nome</h3>
-                <p>@lanche.DescricaoCurta</p>
-            </div>
-        </div>
+        @*@Html.Partial("_LanchesResumo", lanche)*@
+        <partial name="_LanchesResumo" for="@lanche" />
     }
 </div>
 
